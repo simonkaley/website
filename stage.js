@@ -139,7 +139,7 @@ function setup() {
 
                 popcornArr.push(new Popcorn(canvas.width/2+50,canvas.height-100,110,62));
                 popcornArr.push(new Popcorn(canvas.width/2+50,canvas.height-100,110,62));
-                popcornArr.push(new Popcorn(canvas.width/2+50,canvas.height-100,110,62));g
+                popcornArr.push(new Popcorn(canvas.width/2+50,canvas.height-100,110,62));
                 popcornArr.push(new Popcorn(canvas.width/2+50,canvas.height-100,110,62));
             } 
             
@@ -156,8 +156,12 @@ function windowResized() {
     canvas.position(x,y);
 }
 
-
-
+//make audio
+function touchStarted() {
+    if (getAudioContext().state !== 'running') {
+      getAudioContext().resume();
+    }
+}
 
 function draw() {
     //background color
