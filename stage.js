@@ -22,7 +22,8 @@ var sensor;
 var mConstraint;
 var kernel1;
 var matchstick1;
-var kernelExists = true; 
+var kernelExists = true;
+var kernelPopped = false; 
 
 var arrowImg;
 var arrowRightImg;
@@ -117,6 +118,7 @@ function setup() {
             var pair = pairs[i];
 
             if (pair.bodyA === sensor) {
+                kernelPopped = true;
                 //remove sensor, kernel1, and block
                 Composite.remove(world, kernel1.body);
                 Composite.remove(world, sensor);
@@ -176,7 +178,7 @@ function draw() {
             kernelExists = true;
         }
     }
-    if (kernelExists==true)
+    if (kernelExists==true && kernelPopped==false)
     {
         //draw matchstick
         imageMode(CENTER)
